@@ -97,3 +97,11 @@ get '/auth/facebook/callback' do
 	session[:access_token] = authenticator.get_access_token(params[:code])
 	redirect '/'
 end
+
+get '/draw' do
+  'Hello from Draw'  
+end
+
+get '/vote' do
+  'Hello from Vote'
+end
