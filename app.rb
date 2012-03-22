@@ -5,6 +5,33 @@ enable :sessions
 set :raise_errors, false
 set :show_exceptions, false
 
+require 'data_mapper'
+
+DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/my_database')
+
+class Drawing
+  include DataMapper::Resource
+  property :id,         Serial
+  property :user_id,    String
+  property :noun,       String
+  property :uri,        String
+  property :created_at, DateTime
+
+  has n, :votes
+end
+
+class Vote
+  include DataMapper::Resource
+  property :id,         Serial
+  property :user_id,    String
+  property :drawing_id, Integer
+  property :created_at, DateTime
+
+  belongs_to :drawing
+end
+
+DataMapper.auto_upgrade!
+
 # Scope defines what permissions that we are asking the user to grant.
 # In this example, we are asking for the ability to publish stories
 # about using the app, access to what the user likes, and to be able
@@ -102,7 +129,7 @@ get '/auth/facebook/callback' do
 end
 
 get '/draw' do
-  erb :draw  
+  erb :draw
 end
 
 get '/vote' do
