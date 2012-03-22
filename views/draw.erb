@@ -2,40 +2,40 @@
 <html>
 <head>
     <title>DuelDraw</title>
-    <script src="https://raw.github.com/paperjs/paper.js/master/dist/paper.js"></script>
-    <script src="https://raw.github.com/jashkenas/coffee-script/master/extras/coffee-script.js"></script>
-    <script src="https://raw.github.com/gist/1164446/coffee-stained-paper.js"></script>
-
-<script type="text/coffeescript">
-
-  stainedPaper ->
-
-  
-    path = new @Path()
-
-    # Give the stroke a color
-    path.strokeColor = 'black'
-    start = new @Point(100, 100)
-
-    # Move to start and draw a line from there
-    path.moveTo(start)
-
-    # Note that the plus operator on Point objects does not work
-    # in JavaScript. Instead, we need to call the add() function:
-    path.lineTo start.add([ 200, -50 ])
-
-    # Draw the view now:
-    @view.draw()
-      
-    rect = new @Path.Rectangle([100, 50], [10, 100])
-    rect.strokeColor = 'black'
-
-    @view.onFrame = (event) ->
-      # On each frame, rotate the path by 3 degrees:
-      rect.rotate(3)
-
-</script></head>
+    <script type="text/javascript" src="https://raw.github.com/paperjs/paper.js/master/dist/paper.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/jashkenas/coffee-script/master/extras/coffee-script.js"></script>
+</head>
 <body>
-    <p>Draw something with our wonderful app!</p>
+<div class="paperscript split">
+<script type="text/paperscript" canvas="canvas-1">
+// Create a new path once, when the script is executed:
+var myPath = new Path();
+myPath.strokeColor = 'black';
+
+// This function is called whenever the user
+// clicks the mouse in the view:
+function onMouseDown(event) {
+    // If the path is empty, we need to add two segments
+    // to the path. The first one will stay put,
+    // and the second one will be moved while dragging.
+    if (myPath.segments.length == 0) {
+        myPath.add(event.point);
+    }
+
+    // Add a segment to the path at the position of the mouse:
+    myPath.add(event.point);
+}
+
+function onMouseDrag(event) {
+    // Move the last segment point of the path to the
+    // current position of the mouse:
+    myPath.lastSegment.point = event.point;
+}
+</script>
+<!--<script type='text/coffeescript' src="javascripts/hello.coffee" canvas="canvas-1"></script>-->
+<div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-1"></canvas></div>
+
+</div>
+
 </body>
 </html>
