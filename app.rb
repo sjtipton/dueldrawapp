@@ -46,6 +46,9 @@ helpers do
     @authenticator ||= Koala::Facebook::OAuth.new(ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"], url("/auth/facebook/callback"))
   end
 
+  def nouns
+    %w(ball rabbit house condiment wish)
+  end
 end
 
 # the facebook session expired! reset ours and restart the process
