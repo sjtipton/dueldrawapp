@@ -99,9 +99,9 @@ get '/auth/facebook/callback' do
 end
 
 get '/draw' do
-  'Hello from Draw'  
+  erb :draw  
 end
 
 get '/vote' do
-  'Hello from Vote'
+  erb :vote
 end
