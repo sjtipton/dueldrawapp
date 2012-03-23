@@ -15,7 +15,7 @@ class Drawing
   property :id,         Serial
   property :user_id,    String
   property :noun,       String
-  property :uri,        String
+  property :uri,        Text
   property :created_at, DateTime
 
   has n, :votes
@@ -31,7 +31,7 @@ class Vote
   belongs_to :drawing
 end
 
-DataMapper.auto_upgrade!
+DataMapper.auto_migrate!
 
 # Scope defines what permissions that we are asking the user to grant.
 # In this example, we are asking for the ability to publish stories
