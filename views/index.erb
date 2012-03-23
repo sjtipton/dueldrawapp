@@ -18,10 +18,12 @@
 
     <section id="get-started">
       <img src="images/duel_draw_splash.png" alt"Duel Draw" />
-      <p class="buttons">
-        <a href="/draw" target="_self" class="button black">Draw something</a>
-        <a href="/vote" target="_self" class="button green">Vote on some drawings</a>
-      </p>
+      <% if @user %>
+        <p class="buttons">
+          <a href="/draw" target="_self" class="button black">Draw something</a>
+          <a href="/vote" target="_self" class="button green">Vote on some drawings</a>
+        </p>
+      <% end %>
     </section>
   </body>
 </html>
