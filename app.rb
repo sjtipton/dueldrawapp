@@ -1,6 +1,7 @@
 require "sinatra"
 require 'koala'
 require 'coffee-script'
+require 'ap'
 
 enable :sessions
 set :raise_errors, false
@@ -77,6 +78,10 @@ helpers do
   def nouns
     %w(ball rabbit house condiment wish)
   end
+
+  def max_friends_using_app_qty
+    4
+  end
 end
 
 # the facebook session expired! reset ours and restart the process
@@ -94,12 +99,17 @@ get "/" do
 
   if session[:access_token]
     @user    = @graph.get_object("me")
-    @friends = @graph.get_connections('me', 'friends').sample(6)
+    @friends = @graph.get_connections('me', 'friends')
     @photos  = @graph.get_connections('me', 'photos')
     @likes   = @graph.get_connections('me', 'likes').first(4)
 
     # for other data you can always run fql
-    @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1").first(4)
+    @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square
+                                           FROM user WHERE uid in
+                                           (SELECT uid2 FROM friend WHERE uid1 = me())
+                                           AND is_app_user = 1")
+
+    @max_friends_using_app_qty = max_friends_using_app_qty
   end
   erb :index
 end
@@ -138,12 +148,17 @@ get '/draw' do
 
   if session[:access_token]
     @user    = @graph.get_object("me")
-    @friends = @graph.get_connections('me', 'friends').sample(6)
+    @friends = @graph.get_connections('me', 'friends')
     @photos  = @graph.get_connections('me', 'photos')
     @likes   = @graph.get_connections('me', 'likes').first(4)
 
     # for other data you can always run fql
-    @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1").first(4)
+    @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square
+                                           FROM user WHERE uid in
+                                           (SELECT uid2 FROM friend WHERE uid1 = me())
+                                           AND is_app_user = 1")
+
+    @max_friends_using_app_qty = max_friends_using_app_qty
 
     @noun = nouns.sample
   end

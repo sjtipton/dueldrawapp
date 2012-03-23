@@ -81,6 +81,19 @@ header .tagline {
   list-style: none;
   margin-left: 8px;
 }
+
+.list .bx-prev,
+.list .bx-next {
+  margin-top: -10px;
+}
+
+.list .bx-prev {
+  float: left;
+}
+
+.list .bx-next {
+  float: right;
+}
 /* ------------------------------------------ */
 
 /* =buttons
