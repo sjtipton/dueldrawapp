@@ -346,10 +346,18 @@ header .tagline {
   width: 718px;
   height: 320px;
   margin: 0 auto;
+  position: relative;
 }
 
 .canvas canvas {
   margin-top: 5px;
+}
+
+.canvas .noun {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-transform: uppercase;
 }
 
 .submit-drawing {
