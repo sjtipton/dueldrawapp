@@ -2,6 +2,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.2.7)
+    awesome_print (1.0.2)
     bcrypt-ruby (3.0.1)
     coffee-script (2.2.0)
       coffee-script-source
@@ -67,13 +68,14 @@ GEM
     fastercsv (1.5.4)
     httparty (0.7.8)
       crack (= 0.1.8)
+    interactive_editor (0.0.10)
+      spoon (>= 0.0.1)
     json (1.5.4)
     json_pure (1.5.4)
       spruz (~> 0.2.8)
     koala (1.3.0)
       faraday (~> 0.7.0)
       multi_json (~> 1.0)
-    libv8 (3.3.10.4)
     multi_json (1.0.3)
     multipart-post (1.1.5)
     rack (1.3.2)
@@ -84,11 +86,10 @@ GEM
     slim (1.1.1)
       temple (~> 0.4.0)
       tilt (~> 1.3.2)
+    spoon (0.0.1)
     spruz (0.2.13)
     stringex (1.3.2)
     temple (0.4.0)
-    therubyracer (0.9.10)
-      libv8 (~> 3.3.10)
     therubyracer (0.9.9)
     thin (1.2.11)
       daemons (>= 1.0.9)
@@ -101,10 +102,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   coffee-script
   data_mapper
   dm-postgres-adapter
   httparty
+  interactive_editor
   json
   koala
   sass
