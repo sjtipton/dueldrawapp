@@ -31,7 +31,7 @@ class Vote
   belongs_to :drawing
 end
 
-DataMapper.auto_migrate!
+DataMapper.auto_upgrade!
 
 # Scope defines what permissions that we are asking the user to grant.
 # In this example, we are asking for the ability to publish stories
