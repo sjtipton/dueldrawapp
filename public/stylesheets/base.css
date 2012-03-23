@@ -208,13 +208,23 @@ header .tagline {
   text-align: center;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .29);
   padding: 0;
+  background-image: -moz-linear-gradient(top, #cfe3a1, #b2d268);
+  background-image: -ms-linear-gradient(top, #cfe3a1, #b2d268);
+  background-image: -o-linear-gradient(top, #cfe3a1, #b2d268);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#cfe3a1), to(#b2d268));
+  background-image: -webkit-linear-gradient(top, #cfe3a1, #b2d268);
+  background-image: linear-gradient(top, #cfe3a1, #b2d268);
+  color: #fff;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .29);
 }
 
 #get-started p {
-  color: #fff;
+  color: #231f20;
   font-family: "CorbelRegular";
-  font-size: 24px;
-  margin-bottom: 24px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 4px 0 4px 0;
+  text-shadow: none;
 }
 
 #get-started p.buttons {
@@ -327,6 +337,23 @@ header .tagline {
 #samples .list + .list {
   width: 260px;
   float: right;
+}
+/* ------------------------------------------ */
+
+/* =canvas
+--------------------------------------------- */
+canvas {
+  width: 718px;
+  height: 320px;
+  background: url("../images/duel_draw_back.png") no-repeat;
+}
+
+.submit-drawing {
+  width: 718px;
+  height: 162px;
+  margin-top: -5px;
+  border-top: 1px solid #b3b3b3;
+  background: url("../images/duel_draw_text.png") no-repeat;
 }
 /* ------------------------------------------ */
 
