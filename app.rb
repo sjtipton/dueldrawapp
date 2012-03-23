@@ -1,7 +1,6 @@
 require "sinatra"
 require 'koala'
 require 'coffee-script'
-require 'ap'
 
 enable :sessions
 set :raise_errors, false
