@@ -180,11 +180,12 @@
             </div>
           </div>
       <% else %>
-        <div>
-          <h1>Welcome</h1>
+        <div class="welcome-no-session">
+          <h1>Welcome
             <a href='/auth/facebook' class="fb_button fb_button_medium">
               <span class="fb_button_text">Log In</span>
             </a>
+          </h1>
         </div>
 
       <% end %>
@@ -195,8 +196,8 @@
         <img src="images/duel_draw_splash.png" alt"Duel Draw" />
       </p>
       <p class="buttons">
-        <a href="/draw" target="_top" class="button">Draw something</a>
-        <a href="/vote" target="_top" class="button">Vote on some drawings</a>
+        <a href="/draw" target="_top" class="button black">Draw something</a>
+        <a href="/vote" target="_top" class="button green">Vote on some drawings</a>
       </p>
     </section>
   </body>
