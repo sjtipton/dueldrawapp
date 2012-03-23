@@ -42,7 +42,7 @@
         nextText: 'Next >'
       });
 
-      <% if @friends_using_app.count >= 4 %>
+      <% if @user && @friends_using_app.count >= 4 %>
         $('.friends.app-users').bxSlider({
           displaySlideQty: <%= @max_friends_using_app_qty %>,
           moveSlideQty: 4,
