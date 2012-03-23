@@ -227,10 +227,12 @@
         </div>
 
       </div>
-      <div class="submit-drawing">
-        <p>Don't be shy! Share your masterpiece with your DuelDraw friends!</p>
-        <a href="#" class="button green">Submit</a>
-      </div>
+      <% if @user %>
+        <div class="submit-drawing">
+          <p>Don't be shy! Share your masterpiece with your DuelDraw friends!</p>
+          <a href="#" class="button green">Submit</a>
+        </div>
+      <% end %>
     </section>
   </body>
 </html>
