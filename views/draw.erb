@@ -198,8 +198,10 @@
       <div class="paperscript split">
         <script type="text/paperscript" canvas="canvas-1">
         // Create a new path once, when the script is executed:
-        var myPath = new Path();
-        myPath.strokeColor = 'black';
+        tool.minDastance = 10;
+        var path;
+        //var myPath = new Path();
+        //myPath.strokeColor = 'black';
 
         // This function is called whenever the user
         // clicks the mouse in the view:
@@ -207,18 +209,27 @@
             // If the path is empty, we need to add two segments
             // to the path. The first one will stay put,
             // and the second one will be moved while dragging.
-            if (myPath.segments.length == 0) {
-                myPath.add(event.point);
-            }
+            //if (myPath.segments.length == 0) {
+            //    myPath.add(event.point);
+            //}
 
             // Add a segment to the path at the position of the mouse:
-            myPath.add(event.point);
+            //myPath.add(event.point);
+            // Create a new path and give it a stroke color:
+            path = new Path();
+            path.strokeColor = '#000000';
+
+            // Add a segment to the path where you clicked:
+            path.add(event.point);
         }
 
         function onMouseDrag(event) {
             // Move the last segment point of the path to the
             // current position of the mouse:
-            myPath.lastSegment.point = event.point;
+            //myPath.lastSegment.point = event.point;
+            // Every drag event, add a segment
+            // to the path at the position of the mouse:
+            path.add(event.point);
         }
         </script>
         <!--<script type='text/coffeescript' src="javascripts/hello.coffee" canvas="canvas-1"></script>-->
