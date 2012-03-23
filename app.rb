@@ -1,5 +1,6 @@
 require "sinatra"
 require 'koala'
+require 'coffee-script'
 
 enable :sessions
 set :raise_errors, false
@@ -7,7 +8,7 @@ set :show_exceptions, false
 
 require 'data_mapper'
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/my_database')
+DataMapper.setup(:default, ENV['HEROKU_SHARED_POSTGRESQL_COBALT_URL'] || 'postgres://localhost/my_database')
 
 class Drawing
   include DataMapper::Resource

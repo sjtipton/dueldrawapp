@@ -150,16 +150,44 @@ header .tagline {
   text-decoration: none;
   text-shadow: 0 1px 1px rgba(255, 255, 255, .2);
 }
+
+.button.black:link,
+.button.black:visited {
+  background-image: -moz-linear-gradient(top, #6b6b6e, #231f20);
+  background-image: -ms-linear-gradient(top, #6b6b6e, #231f20);
+  background-image: -o-linear-gradient(top, #6b6b6e, #231f20);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#6b6b6e), to(#231f20));
+  background-image: -webkit-linear-gradient(top, #6b6b6e, #231f20);
+  background-image: linear-gradient(top, #6b6b6e, #231f20);
+  color: #fff;
+}
+
+.button.green:link,
+.button.green:visited {
+  background-image: -moz-linear-gradient(top, #cfe3a1, #b2d268);
+  background-image: -ms-linear-gradient(top, #cfe3a1, #b2d268);
+  background-image: -o-linear-gradient(top, #cfe3a1, #b2d268);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#cfe3a1), to(#b2d268));
+  background-image: -webkit-linear-gradient(top, #cfe3a1, #b2d268);
+  background-image: linear-gradient(top, #cfe3a1, #b2d268);
+  color: #fff;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .29);
+}
 /* ------------------------------------------ */
 
 /* =facebook sharing actions
 --------------------------------------------- */
-.welcome {
+.welcome,
+.welcome-no-session {
   padding-bottom: 10px;
 }
 
 .welcome h1 {
   float: left;
+}
+
+.welcome-no-session h1 a {
+  margin-left: 20px;
 }
 
 #facebook-sharing-actions {
