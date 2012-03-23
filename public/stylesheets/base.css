@@ -231,6 +231,12 @@ header .tagline {
   text-shadow: 0 2px 0 rgba(0, 0, 0, .29);
 }
 
+#get-started.draw {
+  background: none;
+  border-top: none;
+  height: auto;
+}
+
 #get-started p {
   color: #231f20;
   font-family: "CorbelRegular";
@@ -357,13 +363,14 @@ header .tagline {
 --------------------------------------------- */
 .canvas {
   width: 718px;
-  height: 320px;
-  margin: 0 auto;
+  height: 735px;
+  margin: -30px auto 0;
   position: relative;
+  background: url("../images/easel.png") no-repeat;
 }
 
 .canvas canvas {
-  margin-top: 5px;
+  margin-top: 144px;
 }
 
 .canvas .noun {
@@ -371,13 +378,6 @@ header .tagline {
   top: 0;
   width: 100%;
   text-transform: uppercase;
-}
-
-.submit-drawing {
-  width: 718px;
-  height: 162px;
-  border-top: 1px solid #b3b3b3;
-  background: url("../images/duel_draw_text.png") no-repeat;
 }
 /* ------------------------------------------ */
 
