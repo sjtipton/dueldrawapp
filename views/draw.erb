@@ -19,7 +19,7 @@
 
     <%= erb(:facebook_header, layout: false) %>
 
-    <section id="get-started">
+    <section id="get-started" class="draw">
       <div class="paperscript split">
         <script type="text/paperscript" canvas="canvas-1">
         // Create a new path once, when the script is executed:
@@ -43,16 +43,10 @@
         </script>
         <div class="canvas">
           <h1 class="noun"><%= @noun %></h1>
-          <canvas height="310" width="708" style="background:#e4e1e1" id="canvas-1">
+          <canvas height="426" width="652" style="background:#fff" id="canvas-1">
         </div>
 
       </div>
-      <% if @user %>
-        <div class="submit-drawing">
-          <p>Don't be shy! Share your masterpiece with your DuelDraw friends!</p>
-          <a href="#" class="button green" target="_self">Submit</a>
-        </div>
-      <% end %>
     </section>
   </body>
 </html>
