@@ -384,6 +384,19 @@ header .tagline {
   font-size: 30px;
   color: #fff;
 }
+
+.canvas form {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.canvas form .submit {
+  cursor: hand;
+  margin-top: 32px;
+  margin-right: 87px;
+  float: right;
+}
 /* ------------------------------------------ */
 
 /* =clearfix
