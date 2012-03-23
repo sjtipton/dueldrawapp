@@ -24,8 +24,11 @@
     <section id="get-started">
       <div class="paperscript split">
         <script type="text/paperscript" canvas="canvas-1">
+        //var canvas = document.getElementById('canvas-1');
+        //var ctx = canvas.getContext("2d");
+        //ctx.BeginPath();
         // Create a new path once, when the script is executed:
-        tool.minDastance = 10;
+        tool.minDistance = 10;
         var path;
         
         function onMouseDown(event) {
@@ -53,7 +56,6 @@
         <div class="submit-drawing">
           <p>Don't be shy! Share your masterpiece with your DuelDraw friends!</p>
           <a href="#" class="button green" target="_self">Submit</a>
-          <a href="#" class="button red" onclick="clearCanvas();">Erase It!</a>
         </div>
       <% end %>
     </section>
