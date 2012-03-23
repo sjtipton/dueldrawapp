@@ -342,16 +342,19 @@ header .tagline {
 
 /* =canvas
 --------------------------------------------- */
-canvas {
+.canvas {
   width: 718px;
   height: 320px;
-  background: url("../images/duel_draw_back.png") no-repeat;
+  margin: 0 auto;
+}
+
+.canvas canvas {
+  margin-top: 5px;
 }
 
 .submit-drawing {
   width: 718px;
   height: 162px;
-  margin-top: -5px;
   border-top: 1px solid #b3b3b3;
   background: url("../images/duel_draw_text.png") no-repeat;
 }
