@@ -4,6 +4,8 @@
 
     <%= erb(:facebook_guts, layout: false) %>
 
+    <script type="text/javascript" src="/javascripts/dueldraw.js"></script>
+
     <script type="text/javascript" src="https://raw.github.com/paperjs/paper.js/master/dist/paper.js"></script>
     <script type="text/javascript" src="https://raw.github.com/jashkenas/coffee-script/master/extras/coffee-script.js"></script>
 
@@ -51,6 +53,7 @@
         <div class="submit-drawing">
           <p>Don't be shy! Share your masterpiece with your DuelDraw friends!</p>
           <a href="#" class="button green" target="_self">Submit</a>
+          <a href="#" class="button red" onclick="clearCanvas();">Erase It!</a>
         </div>
       <% end %>
     </section>
