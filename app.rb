@@ -8,7 +8,7 @@ set :show_exceptions, false
 
 require 'data_mapper'
 
-DataMapper.setup(:default, ENV['HEROKU_SHARED_POSTGRESQL_COBALT_URL'] || 'postgres://localhost/my_database')
+DataMapper.setup(:default, ENV['HEROKU_SHARED_POSTGRESQL_COBALT_URL'] || 'postgres://rails:marm0t@127.0.0.1/dueldraw')
 
 class Drawing
   include DataMapper::Resource
