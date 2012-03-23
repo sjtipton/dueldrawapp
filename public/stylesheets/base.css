@@ -232,7 +232,7 @@ header .tagline {
 }
 
 #get-started.draw {
-  background: none;
+  background: url("../images/canvas_faded_background.png") no-repeat;
   border-top: none;
   height: auto;
 }
