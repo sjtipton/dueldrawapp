@@ -1,9 +1,37 @@
 require "sinatra"
 require 'koala'
+require 'coffee-script'
 
 enable :sessions
 set :raise_errors, false
 set :show_exceptions, false
+
+require 'data_mapper'
+
+DataMapper.setup(:default, ENV['HEROKU_SHARED_POSTGRESQL_COBALT_URL'] || 'postgres://localhost/my_database')
+
+class Drawing
+  include DataMapper::Resource
+  property :id,         Serial
+  property :user_id,    String
+  property :noun,       String
+  property :uri,        String
+  property :created_at, DateTime
+
+  has n, :votes
+end
+
+class Vote
+  include DataMapper::Resource
+  property :id,         Serial
+  property :user_id,    String
+  property :drawing_id, Integer
+  property :created_at, DateTime
+
+  belongs_to :drawing
+end
+
+DataMapper.auto_upgrade!
 
 # Scope defines what permissions that we are asking the user to grant.
 # In this example, we are asking for the ability to publish stories
@@ -46,6 +74,9 @@ helpers do
     @authenticator ||= Koala::Facebook::OAuth.new(ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"], url("/auth/facebook/callback"))
   end
 
+  def nouns
+    %w(ball rabbit house condiment wish)
+  end
 end
 
 # the facebook session expired! reset ours and restart the process
@@ -63,12 +94,12 @@ get "/" do
 
   if session[:access_token]
     @user    = @graph.get_object("me")
-    @friends = @graph.get_connections('me', 'friends')
+    @friends = @graph.get_connections('me', 'friends').sample(6)
     @photos  = @graph.get_connections('me', 'photos')
     @likes   = @graph.get_connections('me', 'likes').first(4)
 
     # for other data you can always run fql
-    @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
+    @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1").first(4)
   end
   erb :index
 end
@@ -96,4 +127,12 @@ end
 get '/auth/facebook/callback' do
 	session[:access_token] = authenticator.get_access_token(params[:code])
 	redirect '/'
+end
+
+get '/draw' do
+  erb :draw
+end
+
+get '/vote' do
+  erb :vote
 end
