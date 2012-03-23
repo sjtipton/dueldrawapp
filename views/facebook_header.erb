@@ -31,6 +31,27 @@
     js.src = "//connect.facebook.net/en_US/all.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
+
+  // Custom Add on BxSlider
+  $(document).ready(function() {
+    $(function(){
+      $('.friends.handful').bxSlider({
+        displaySlideQty: 6,
+        moveSlideQty: 6,
+        prevText: '< Previous',
+        nextText: 'Next >'
+      });
+
+      <% if @friends_using_app.count >= 4 %>
+        $('.friends.app-users').bxSlider({
+          displaySlideQty: <%= @max_friends_using_app_qty %>,
+          moveSlideQty: 4,
+          prevText: '< Previous',
+          nextText: 'Next >'
+        });
+      <% end %>
+    });
+  });
 </script>
 
 <header class="clearfix">
@@ -60,8 +81,8 @@
       </div>
       <div id="samples">
         <div class="list">
-          <h3>Fellow DuelDrawers</h3>
-          <ul class="friends">
+          <h3>Fellow DuelDrawers (<%= @friends_using_app.count %>)</h3>
+          <ul class="friends app-users">
             <% @friends_using_app.each do |friend_result| %>
               <li>
                 <a href="#" onclick="window.open('http://www.facebook.com/<%= friend_result['uid'] %>')">
@@ -72,8 +93,8 @@
           </ul>
         </div>
         <div class="list">
-          <h3>A handful of your friends</h3>
-          <ul class="friends">
+          <h3>A handful of your friends (<%= @friends.count %>)</h3>
+          <ul class="friends handful">
             <% @friends.each do |friend| %>
               <li>
                 <a href="#" onclick="window.open('http://www.facebook.com/<%= friend['id']%>')">
