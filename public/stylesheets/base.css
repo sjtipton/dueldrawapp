@@ -375,9 +375,14 @@ header .tagline {
 
 .canvas .noun {
   position: absolute;
-  top: 0;
+  top: 75px;
+  margin-left: -10px;
   width: 100%;
   text-transform: uppercase;
+  font-weight: bold;
+  font-family: Helvetica;
+  font-size: 30px;
+  color: #fff;
 }
 /* ------------------------------------------ */
 
