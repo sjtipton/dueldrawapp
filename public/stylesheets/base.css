@@ -375,9 +375,27 @@ header .tagline {
 
 .canvas .noun {
   position: absolute;
-  top: 0;
+  top: 75px;
+  margin-left: -10px;
   width: 100%;
   text-transform: uppercase;
+  font-weight: bold;
+  font-family: Helvetica;
+  font-size: 30px;
+  color: #fff;
+}
+
+.canvas form {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.canvas form .submit {
+  cursor: hand;
+  margin-top: 32px;
+  margin-right: 87px;
+  float: right;
 }
 /* ------------------------------------------ */
 
